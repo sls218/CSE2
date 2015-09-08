@@ -1,12 +1,12 @@
 ///////////
 //Steph Stieber
 //9-6-15
-//Walmart Bill Java Program 
+//Arithmetic Java Program 
 //Calculates the total bill of items 
 //at Walmart plus 6% PA sales tax
 
 //define a class
-public class WalmartBill{
+public class Arithmetic{
     //add main method
     public static void main(String[] args) {
         
@@ -80,23 +80,23 @@ public class WalmartBill{
         double totalPaid$=(totalPaidint/100.0);
         
         //print item, count, and cost/item on receipt
-        System.out.println(nSocks+ " socks were purchased at a cost of $" + sockCost$);
-        System.out.println(nGlasses+ " glasses were purchased at a cost of $" + glassCost$);
-        System.out.println(nEnvelopes+ " envelope was purchased at a cost of $" + envelopeCost$);
+        System.out.println(nSocks+ " socks cost $" + sockCost$ + " per unit");
+        System.out.println(nGlasses+ " glasses cost $" + glassCost$ + " per unit");
+        System.out.println(nEnvelopes+ " envelope costs $" + envelopeCost$ + " per unit");
         
         //print total cost of each item with its corresponding tax
-        System.out.println("The socks will cost a total of $" + totalSockCost$
-        + " with a tax of $" + sockTax$);
-        System.out.println("The glass will cost a total of $" + totalGlassCost$
-        + " with a tax of $" + glassTax$);
-        System.out.println("The envelope will cost a total of $" + totalEnvelopeCost$
-        + " with a tax of $" + envelopeTax$);
+        System.out.println("Total sock cost = \t$" + totalSockCost$
+        + ";\t sock tax = $" + sockTax$);
+        System.out.println("Total glass cost = \t$" + totalGlassCost$
+        + ";\t glass tax = $" + glassTax$);
+        System.out.println("Total envelope cost = \t$" + totalEnvelopeCost$
+        + ";\t envelope tax = $" + envelopeTax$);
         
         //print the subtotal
-        System.out.println("The subtotal is $"+ totalPurchase$);
+        System.out.println("Subtotal = \t\t$"+ totalPurchase$);
         //print the total sales tax
-        System.out.println("The total sales tax is $" + totalTax$);
+        System.out.println("Total sales tax = \t$" + totalTax$);
         //print the total purchse
-        System.out.println("The total Walmart bill is $" + totalPaid$);
+        System.out.println("Total bill = \t\t$" + totalPaid$);
     }
 }
