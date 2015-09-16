@@ -14,7 +14,7 @@ public class Block {
     public static void main(String[] args) {
         //tell program you want to use scanner constructor 
         Scanner myScanner = new Scanner(System.in);
-        //as the user to imput the length, width, and height of the block as doubles
+        //ask the user to imput the length, width, and height of the block as doubles
         System.out.print("Enter the length of the block: ");
         double length = myScanner.nextDouble();
         System.out.print("Enter the width of the block: ");
@@ -33,8 +33,3 @@ public class Block {
         }
     }
     
-//Enter the length of the block: 8.5
-//Enter the width of the block: 6.0
-//Enter the height of the block: 2.0
-//The volume of the block of dimensions 8.5 x 6.0 x 2.0 is 102.0. 
-//The surface area of the block is 160.0.
