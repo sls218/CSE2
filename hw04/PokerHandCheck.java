@@ -45,8 +45,9 @@ public class PokerHandCheck{
     //initialize cardNumber which tells us the new 
     //value for each suit after subtraction
     int cardNumber = number - subtract;
-    //create a string that converts the number generated to a face value
+    //create a string faceValue storing the updated value of the card
     String faceValue = "faceValue";
+    //use a switch statement that converts the number generated to a new face value
     switch(cardNumber){
         case 1:
             faceValue="Ace";
