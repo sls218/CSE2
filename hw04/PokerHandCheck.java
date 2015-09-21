@@ -10,27 +10,42 @@
 public class PokerHandCheck{
     //define main method
     public static void main(String[] args) {
+        //generate a random number 1-52
         int number = (int)(Math.random()*52)+1;
+    //initialize the string variables suit and identity
     String suit = "suit";
     String identity = "identity";
+    //initialize "subtract", the initial number to take away from
+    //the generated number to obtain a helpful card number
     int subtract = 0;
+    //if numbers are 1-13 they are diamonds
     if (number>0 && number<=13){
         suit = "Diamonds";
+        //subtract nothing because numbers are already 1-13
         subtract = 0;
     }
+    //if numbers are 14-26 they are clubs
     else if (number<=26){
         suit = "Clubs";
+        //subtract 13 to convert numbers to values 1-13
         subtract = 13;
     }
+    //if numbers are 17-39 they are hearts
     else if (number<=39){
         suit = "Hearts";
+        //subtract 26 to convert numbers to values 1-13
         subtract = 26;
     }
+    //if numbers are 40-52 they are spades
     else if (number<=52){
         suit = "Spades";
+        //subtract 39 to convert numbers to values 1-13
         subtract = 39;
     }
+    //initialize cardNumber which tells us the new 
+    //value for each suit after subtraction
     int cardNumber = number - subtract;
+    //create a string that converts the number generated to a face value
     String faceValue = "faceValue";
     switch(cardNumber){
         case 1:
@@ -73,9 +88,11 @@ public class PokerHandCheck{
             faceValue="King";
         break;
     }
+    //print the face value and suit of the card generated
     System.out.println("Your random cards were: ");
     System.out.println("the "+faceValue+" of "+suit);
     
+    //repeat above code for a second number 
     int number2 = (int)(Math.random()*52)+1;
     if (number2>0 && number2<=13){
         suit = "Diamonds";
@@ -137,6 +154,7 @@ public class PokerHandCheck{
     }
     System.out.println("the "+faceValue+" of "+suit);
     
+    //repeat code above for a third number
     int number3 = (int)(Math.random()*52)+1;
     if (number3>0 && number3<=13){
         suit = "Diamonds";
@@ -198,6 +216,7 @@ public class PokerHandCheck{
     }
     System.out.println("the "+faceValue+" of "+suit);
     
+    //repeat code above for a fourth number
     int number4 = (int)(Math.random()*52)+1;
     if (number4>0 && number4<=13){
         suit = "Diamonds";
@@ -259,6 +278,7 @@ public class PokerHandCheck{
     }
     System.out.println("the "+faceValue+" of "+suit);
     
+    //repeat code above for a fifth number 
     int number5 = (int)(Math.random()*52)+1;
     if (number5>0 && number5<=13){
         suit = "Diamonds";
@@ -319,7 +339,10 @@ public class PokerHandCheck{
         break;
     }
     System.out.println("the "+faceValue+" of "+suit);
+    
+    //initialize a counter for counting pairs of cards
     int pair=0;
+    //list all possible combinatinos of pair two cards together
     if (cardNumber==cardNumber2){
         pair = pair+1;
     }
@@ -350,6 +373,8 @@ public class PokerHandCheck{
     if (cardNumber4==cardNumber5){
         pair = pair+1;
     }
+    
+    //print specific results of hand
     if (pair == 0){
         System.out.println("You have a high card hand!");
     }
