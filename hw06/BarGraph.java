@@ -18,26 +18,102 @@ public class BarGraph {
         //tell program you want to use scanner constructor 
         Scanner myScanner = new Scanner(System.in);
         
-        //as the user to input their expenses for Monday-Sunday as a double
-        System.out.print("Expenses for Monday: \t\t$");
-        double Monday = myScanner.nextDouble();
-        System.out.print("Expenses for Tuesday: \t\t$");
-        double Tuesday = myScanner.nextDouble();
-        System.out.print("Expenses for Wednesday: \t$");
-        double Wednesday = myScanner.nextDouble();
-        System.out.print("Expenses for Thursday: \t\t$");
-        double Thursday = myScanner.nextDouble();
-        System.out.print("Expenses for Friday: \t\t$");
-        double Friday = myScanner.nextDouble();
-        System.out.print("Expenses for Saturday: \t\t$");
-        double Saturday = myScanner.nextDouble();
-        System.out.print("Expenses for Sunday: \t\t$");
-        double Sunday = myScanner.nextDouble();
+        //initialize expenses and each day of the week as a double equaling zero
+        double expenses=0.0;
+        double Monday=0.0;
+        double Tuesday=0.0;
+        double Wednesday=0.0;
+        double Thursday=0.0;
+        double Friday=0.0;
+        double Saturday=0.0;
+        double Sunday=0.0;
+        int day=0;
+        //for days 1-7 switch the day going monday-sunday asking for expenses
+        for(day=1; day<=7; day++){
+            switch(day){
+                //for day 1
+                case 1: 
+                    //ask for an input of expenses
+                    System.out.print("Expenses for Monday: \t\t$");
+                    //this while loop checks for values that are not numbers and
+                    //asks for another input if not a number
+                    while (!myScanner.hasNextDouble()){
+                        System.out.print("That's not a number. Try again: $");
+                        myScanner.next();
+                    }
+                    expenses=myScanner.nextDouble();
+                    //set monday equal to the expenses just entered
+                    Monday=expenses;
+                    //break the switch statement
+                    //the following cases are run the same as case 1
+                    break;
+                case 2: 
+                    System.out.print("Expenses for Tuesday: \t\t$");
+                    while (!myScanner.hasNextDouble()){
+                        System.out.print("That's not a number. Try again: $");
+                        myScanner.next();
+                    }
+                    expenses=myScanner.nextDouble();
+                    Tuesday=expenses;
+                    break;
+                case 3: 
+                    System.out.print("Expenses for Wednesday: \t$");
+                    while (!myScanner.hasNextDouble()){
+                        System.out.print("That's not a number. Try again: $");
+                        myScanner.next();
+                    }
+                    expenses=myScanner.nextDouble();
+                    Wednesday=expenses;
+                    break;
+                case 4: 
+                    System.out.print("Expenses for Thursday: \t\t$");
+                    while (!myScanner.hasNextDouble()){
+                        System.out.print("That's not a number. Try again: $");
+                        myScanner.next();
+                    }
+                    expenses=myScanner.nextDouble();
+                    Thursday=expenses;
+                    break;
+                case 5: 
+                    System.out.print("Expenses for Friday: \t\t$");
+                    while (!myScanner.hasNextDouble()){
+                        System.out.print("That's not a number. Try again: $");
+                        myScanner.next();
+                    }
+                    expenses=myScanner.nextDouble();
+                    Friday=expenses;
+                    break;
+                case 6: 
+                    System.out.print("Expenses for Saturday: \t\t$");
+                    while (!myScanner.hasNextDouble()){
+                        System.out.print("That's not a number. Try again: $");
+                        myScanner.next();
+                    }
+                    expenses=myScanner.nextDouble();
+                    Saturday=expenses;
+                    break;
+                case 7: 
+                    System.out.print("Expenses for Sunday: \t\t$");
+                    while (!myScanner.hasNextDouble()){
+                        System.out.print("That's not a number. Try again: $");
+                        myScanner.next();
+                    }
+                    expenses=myScanner.nextDouble();
+                    Sunday=expenses;
+                    break;
+            }
+            //if the value entered in any of the above cases is negative, it will ask
+            //for the input again
+            if(expenses<0){
+                System.out.println("Please only enter positive numbers. Try again.");
+                day--;
+                }
+            }
         
         //create a switch statement to change the day to a corresponding number 
         //initialize a double that will check the value of the expense input
         double value=0.0;
-        for(int day=1; day<=7; day++){
+        for(day=1; day<=7; day++){
             switch(day){
                 //when day is 1
                 case 1: 
@@ -104,30 +180,3 @@ public class BarGraph {
         
     }
 }
-
-
-        
-        
- /*   
-           
-            
-                
-                if (day<0){
-                System.out.print("Please only enter positive numbers. Try again: "+ expenses);
-                }
-                else{
-                System.out.print("Sorry, you did not enter an integer. Try again: "+ expenses);
-                }
-                day++;
-
-
-        
-
-        
-
-        }
-        
-
-        
-    }
-}*/
