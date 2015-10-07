@@ -16,36 +16,61 @@ public class CheckDigit{
         //tell program you want to use scanner constructor 
         Scanner myScanner = new Scanner(System.in);
         
-       
-        System.out.print("Enter a 10 digit number: ");
-        int ISBN = myScanner.nextInt(); 
+        //enter a ISBN number that is 10 digits
+        System.out.print("Enter a 10 digit ISBN number: ");
+        //the ISBN is initialized as a string due to the futuere X
+        String ISBN = myScanner.next(); 
+        //if the number entered isnt 10 digits, ask for another entry
+        while (ISBN.length()!=10){
+            System.out.print("Invalid input. Try again: ");
+            ISBN=myScanner.next();
+        }
+        //initialize values
+        char letter='a';
+        int letterInt=0;
+        int last=0;
+        int multiplier=10;
+        int total=0;
         
-        
-       int first =((ISBN/1000000000%10)*10);
-       int second =((ISBN/100000000%10)*9);
-       int third =((ISBN/10000000%10)*8);
-       int fourth =((ISBN/1000000%10)*7);
-       int fifth = ((ISBN/100000%10)*6);
-       int sixth =((ISBN/10000%10)*5);
-       int seventh =((ISBN/1000%10)*4);
-       int eighth =((ISBN/100%10)*3);
-       int ninth =((ISBN/10%10)*2);
-       int checkDigit =(ISBN%10); 
-       
-       int remainder =((first+second+third+fourth+fifth+sixth+seventh+eighth+ninth)%(11));
-       
-       if (remainder==checkDigit){
-            System.out.println("This is a valid ISBN. ");
-       }
-       else if (checkDigit==0){
-            System.out.println("This is NOT a valid ISBN. Check digit should be X. ");
-       }
-       
-        
-        
-        
-        
-        System.out.println("This is a valid NOT a valid ISBN. Please enter 10 digits: ");
-        System.out.println("This is not a valid ISBN. Check digit should be: ");
+        //for the first 8 digits of the ISBN code 
+        for(int digit=0;digit<9;digit++){
+            //change each individual number at a time to a char
+            letter=(ISBN.charAt(digit));
+            //then convert that specific char to an int
+            letterInt=Character.getNumericValue(letter);
+            //multiply 10 by the int value and add to the total 
+            total+=(multiplier*letterInt);
+            //decrease the multiplier each time so that the second digit is being multiplied by 9
+            multiplier--;
+        }
+        //convert the last digit of the ISBN to a char
+        letter=ISBN.charAt(9);
+        //if the last digit in the ISBN number is an X set the last digit value equal to 10
+        if(letter=='X'){
+            last=10;
+        }
+        //if not, conver the char into an int
+        else{
+            last=Character.getNumericValue(letter);
+        }
+        //initialize a int that takes the total and finds the remainder after dividing by 11
+        int check=(total%11);
+        //if that number equals the actual last digit
+        if(check==last){
+            //the ISBN is valid!
+            System.out.println("This is a valid ISBN!");
+        }
+        //if the check doesn't equal the last digit
+        else{
+            //and if the check value is 10, the ISBN is incorrect because it should be an X
+            if(check==10){
+                System.out.println("This is not a valid ISBN. The last digit should be an X");
+            }
+            //if none of the above options, the ISBN is not valid and print the check 
+            else{
+                System.out.println("This is not a valid ISBN. The last digit should be "+ check);
+            }
+        }
     }
 }
+   
